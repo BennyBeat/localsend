@@ -21,13 +21,14 @@
     "files": "Fitxers",
     "finished": "Ha finalitzat",
     "hide": "Amaga",
-    "off": "Inactiu|Desactivat|Deshabilitat",
-    "offline": "Desconnectat|Fora de línia",
-    "on": "Actiu|Activat|Habilitat",
-    "online": "Connectat|En línia",
+    "off": "Deshabilitat",
+    "offline": "Desconnectat",
+    "on": "Habilitat",
+    "online": "Connectat",
     "open": "Obre",
     "queue": "En cua",
     "quickSave": "Desat automàtic",
+    "quickSaveFromFavorites": "Desament automàtic per als «Preferits»",
     "renamed": "Reanomenat",
     "reset": "Restableix",
     "restart": "Reinicia",
@@ -67,7 +68,8 @@
     "nearbyDevices": "Dispositius propers",
     "thisDevice": "Aquest dispositiu",
     "scan": "Cerca dispositius",
-    "sendMode": "Mètode d'enviament",
+    "manualSending": "Enviament manual",
+        "sendMode": "Mètode d'enviament",
     "sendModes": {
       "single": "Un únic dispositiu",
       "multiple": "Diversos dispositius",
@@ -97,18 +99,27 @@
         "system": "Sistema"
       },
       "saveWindowPlacement": "Surt: Desa la posició de la finestra",
-      "minimizeToTray": "Surt: Minimitza a la barra de tasques",
+      "saveWindowPlacementWindows": "Desa la posició de la finestra en tancar",
+      "minimizeToTray": "Surt: Minimitza al menú/barra de tasques en tancar",
       "launchAtStartup": "Inici automàtic després d'iniciar la sessió",
       "launchMinimized": "Inici automàtic minimitzat",
+      "showInContextMenu": "Mostra el LocalSend al menú contextual",
       "animations": "Animacions"
     },
     "receive": {
       "title": "Recepció",
       "quickSave": "@:general.quickSave",
+      "quickSaveFromFavorites": "@:general.quickSaveFromFavorites",
+      "requirePin": "@:webSharePage.requirePin",
+      "autoFinish": "Finalitza automàticament",
       "destination": "Destinació",
       "downloads": "(Baixades)",
       "saveToGallery": "Desa els fitxers multimèdia a la galeria",
       "saveToHistory": "Desa a l'historial"
+    },
+    "send": {
+      "title": "Enviament",
+      "shareViaLinkAutoAccept": "Accepta les peticions automàticament al mode «Comparteix mitjançant un enllaç»"
     },
     "network": {
       "title": "Xarxa",
@@ -118,10 +129,20 @@
       "deviceType": "Tipus de dispositiu",
       "deviceModel": "Model de dispositiu",
       "port": "Port",
+      "discoveryTimeout": "Temps d'espera en cercar",
+      "useSystemName": "Utilitza el nom del sistema",
+      "generateRandomAlias": "Genera un àlies aleatori"
       "portWarning": "Podeu experimentar problemes amb la compartició si utilitzeu un port personalitzat. (Per defecte: {defaultPort})",
       "encryption": "Xifrat",
       "multicastGroup": "Multidifusió",
       "multicastGroupWarning": "Podeu experimentar problemes amb la compartició si utilitzeu una adreça multidifusió personalitzada. (Per defecte: {defaultMulticast})"
+    },
+    "other": {
+      "title": "Varis",
+      "support": "Col·laboreu amb el LocalSend",
+      "donate": "Donació",
+      "privacyPolicy": "Política de privadesa",
+      "termsOfUse": "Termes d'ús"
     },
     "advancedSettings": "Configuració avançada"
   },
@@ -135,6 +156,10 @@
       "solution": "El més habitual és un error amb la configuració del tallafoc. Es pot solucionar permetent les connexions entrants (UDP i TCP) al port {port}.",
       "openFirewall": "Obre el tallafoc"
     },
+    "noDiscovery": {
+      "symptom": "No es poden trobar altres dispositius.",
+      "solution": "Assegureu-vos que tots els dispositius estan connectats a la mateixa xarxa Wi-Fi i utilitzen la mateixa configuració (port, adreça multidifusió, xifrat). Proveu inserint manualment l'adreça IP del dispositiu. Si això funciona, afegiu el dispositiu als preferits perquè es pugui trobar automàticament més endavant."
+    ,
     "noConnection": {
       "symptom": "Cap dispositiu pot trobar d'altres, ni compartir fitxers entre ells.",
       "solution": "Si el problema existeix als dos costats, verifiqueu que els dispositius estan connectats a la mateixa xarxa i la configuració (port, adreça multidifusió i xifrat) és idèntica. Si la connexió Wi-Fi no permet la comunicació entre participants, haureu d'activar aquesta opció a l'encaminador."
@@ -147,6 +172,7 @@
     "empty": "L'historial és buit.",
     "entryActions": {
       "open": "Obre el fitxer",
+      "showInFolder": "Mostra a la carpeta",
       "info": "Informació",
       "deleteFromHistory": "Suprimeix de l'historial"
     }
@@ -179,6 +205,7 @@
   "sendPage": {
     "waiting": "S'està esperant una resposta...",
     "rejected": "El destinatari ha rebutjat la petició.",
+    "tooManyAttempts": "@:web.tooManyAttempts",
     "busy": "El destinatari té pendent altra petició prèvia."
   },
   "progressPage": {
@@ -209,11 +236,29 @@
     "requests": "Peticions",
     "noRequests": "Cap petició.",
     "encryption": "@:settingsTab.network.encryption",
+    "autoAccept": "Accepta automàticament les peticions",
+    "requirePin": "Requereix un PIN",
+    "pinHint": "El PIN és \"{pin}\"",
     "encryptionHint": "El LocalSend utilitza un certificat signat per ell mateix que heu d'acceptar al navegador.",
     "pendingRequests": "Peticions pendents: {n}"
   },
   "aboutPage": {
-    "title": "Quant al LocalSend"
+    "title": "Quant al LocalSend",
+    "description": [
+      "El LocalSend és una aplicació de codi lliure i gratuïta que us permet compartir fitxers i missatges de forma segura amb els dispositius de la vostra xarxa local sense necessitat de connexió a Internet.",
+      "Es troba disponible per a Android, iOS, Linux, macOS i Windows. Totes les opcions de baixada estan disponibles al web oficial."
+    ],
+    "author": "Autor",
+    "contributors": "Contribuïdors",
+    "packagers": "Empaquetadors",
+    "translators": "Traductors"
+  },
+  "donationPage": {
+    "title": "Donació",
+    "info": "El LocalSend és gratuït, de codi lliure i sense anuncis. Si us ha agradat, podeu col·laborar al desenvolupament amb una donació.",
+    "donate": "Doneu {amount}",
+    "thanks": "Moltes gràcies!",
+    "restore": "Restaura"
   },
   "changelogPage": {
     "title": "Registre de canvis"
@@ -308,7 +353,7 @@
     },
     "cannotOpenFile": {
       "title": "No es pot obrir el fitxer",
-      "content": "No es pot obrir \«{file}\». S'ha mogut, reanomenat o suprimit el fitxer?"
+      "content": "No es pot obrir «{file}». S'ha mogut, reanomenat o suprimit el fitxer?"
     },
     "encryptionDisabledNotice": {
       "title": "Xifratge desactivat",
@@ -324,7 +369,7 @@
     },
     "favoriteDeleteDialog": {
       "title": "Suprimeix dels preferits",
-      "content": "Segur que voleu suprimir \«{name}\» dels preferits?"
+      "content": "Segur que voleu suprimir «{name}» dels preferits?"
     },
     "favoriteEditDialog": {
       "titleAdd": "Afegeix als preferits",
@@ -345,6 +390,10 @@
     "fileNameInput": {
       "title": "Inseriu un nom de fitxer",
       "original": "Original: {original}"
+    },
+    "historyClearDialog": {
+      "title": "Neteja l'historial",
+      "content": "Realment voleu suprimir l'historial sencer?"
     },
     "localNetworkUnauthorized": {
       "title": "@:dialogs.noPermission.title",
@@ -382,27 +431,45 @@
       "title": "@:general.quickSave",
       "content": "Les sol·licituds de fitxers s'accepten automàticament. Aneu amb compte perquè qualsevol a la xarxa local us pot enviar fitxers."
     },
-    "sendModeHelp": {
+    "quickSaveFromFavoritesNotice": {
+      "title": "@:general.quickSaveFromFavorites",
+      "content": "A partir d'ara, s'acceptaran automàticament els fitxers dels dispositius de la llista de preferits."
+    },
+    "pin": {
+      "title": "Inseriu el PIN"
+    },
+    "sendModeHelp": 
       "title": "Modes d'enviament",
       "single": "Envia fitxers a un destinatari. Se suprimeix la selecció en finalitzar la transferència.",
       "multiple": "La selecció és reutilitzada per enviar el mateix contingut a múltiples destinataris.",
       "link": "Els destinataris que no tinguin el LocalSend instal·lat, poden baixar els fitxers obrint l'enllaç al seu navegador."
     }
+    "zoom": {
+      "title": "URL"
+    }
+  },
+  "sanitization": {
+    "empty": "El nom de fitxer no pot estar buit",
+    "invalid": "El nom de fitxer conté caràcters no vàlids"
   },
   "tray": {
-    "@info": "Apple Guidelines are very strict about the 'close' wording.",
+    "@info": "La guia d'estil d'Apple és molt estricta amb el mot 'close'. Veieu la Guia d'estil de Softcatalà per a aplicar la traducció adient",
     "open": "@:general.open",
-    "close": "Surt del LocalSend"
+    "close": "Surt del LocalSend",
+    "closeWindows": "Surt"
   },
   "web": {
     "waiting": "@:sendPage.waiting",
+    "enterPin": "Inseriu el PIN",
+    "invalidPin": "PIN no vàlid",
+    "tooManyAttempts": "Massa intents",
     "rejected": "Rebutjat",
     "files": "Fitxers",
     "fileName": "Nom",
     "size": "Mida"
   },
   "assetPicker": {
-    "@info": "Translations for the Media selection tool for Android and Iphone",
+    "@info": "Traduccions per a les opcions d'Android i Iphone",
     "confirm": "Accepta",
     "cancel": "Cancel·la",
     "edit": "Edita",
